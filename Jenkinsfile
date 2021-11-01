@@ -31,6 +31,7 @@ pipeline {
         }
         stage ('Start tomcat') {
             steps {
+                sh '"export CATALINA_BASE=/opt/tomcat/apache-tomcat-9.0.54"'
                 sh '"sudo ${TOMCAT_HOME}/bin/catalina.sh start"'
             }
         }
