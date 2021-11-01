@@ -26,7 +26,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'scp target/RestDemo-0.0.1-SNAPSHOT.war${TOMCAT_HOME}/webapps/'
+                sh 'cp target/RestDemo-0.0.1-SNAPSHOT.war ${TOMCAT_HOME}/webapps/'
             }
         }
         stage ('Start tomcat') {
