@@ -6,7 +6,6 @@ pipeline {
     }
     tools {
         maven 'mvn_3.5'
-        jdk 'JDK1.8'
     }
     stages{
         stage ('Initialize') {
