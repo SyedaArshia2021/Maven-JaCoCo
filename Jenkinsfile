@@ -1,9 +1,8 @@
 pipeline {
     agent any
     environment{
-        TOMCAT_HOME = "/home/marcin/tools/apache-tomcat-8.5.23"
-        TOMCAT_HOST="172.17.0.1"
-        CONN = "marcin@${TOMCAT_HOST}"
+        TOMCAT_HOME = "/opt/tomcat/apache-tomcat-9.0.54"
+        TOMCAT_HOST="10.0.2.15"
     }
     tools {
         maven 'mvn_3.5'
@@ -27,14 +26,12 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'ssh ${CONN} rm -fR ${TOMCAT_HOME}/webapps/RestDemo-0.0.1*'
-                sh 'ssh ${CONN} ls ${TOMCAT_HOME}/webapps/'
-                sh 'scp target/RestDemo-0.0.1-SNAPSHOT.war ${CONN}:${TOMCAT_HOME}/webapps/'
+                sh 'scp target/RestDemo-0.0.1-SNAPSHOT.war${TOMCAT_HOME}/webapps/'
             }
         }
         stage ('Start tomcat') {
             steps {
-                sh 'ssh ${CONN} "${TOMCAT_HOME}/bin/catalina.sh start"'
+                sh '"${TOMCAT_HOME}/bin/catalina.sh start"'
             }
         }
         stage ('Functional tests') {
@@ -50,7 +47,7 @@ pipeline {
         }
         stage ('Stop tomcat') {
             steps {
-                sh 'ssh ${CONN} "${TOMCAT_HOME}/bin/catalina.sh stop"'
+                sh '"${TOMCAT_HOME}/bin/catalina.sh stop"'
             }
         }
     }
