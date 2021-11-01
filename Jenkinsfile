@@ -31,7 +31,7 @@ pipeline {
         }
         stage ('Start tomcat') {
             steps {
-                sh '"${TOMCAT_HOME}/bin/catalina.sh start"'
+                sh '"sudo ${TOMCAT_HOME}/bin/catalina.sh start"'
             }
         }
         stage ('Functional tests') {
@@ -47,7 +47,7 @@ pipeline {
         }
         stage ('Stop tomcat') {
             steps {
-                sh '"${TOMCAT_HOME}/bin/catalina.sh stop"'
+                sh '"sudo ${TOMCAT_HOME}/bin/catalina.sh stop"'
             }
         }
     }
