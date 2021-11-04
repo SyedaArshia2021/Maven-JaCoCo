@@ -37,7 +37,7 @@ public class DemoFT {
     HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
     ResponseEntity<String> response = restTemplate.exchange(
-        createURLWithPort("/demo"),
+        createURLWithPort("/demo/"),
         HttpMethod.GET, entity, String.class);
 
     String expected = "{\"message\":\"Hello there!!\"}";
