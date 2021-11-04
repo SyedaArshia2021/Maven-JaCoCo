@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        TOMCAT_HOME = "/opt/tomcat/apache-tomcat-9.0.54"
+        TOMCAT_HOME = "/var/lib/jenkins/workspace/maven-jacoco-pipeline/tomcat/apache-tomcat-9.0.54"
         TOMCAT_HOST="10.0.2.15"
     }
     tools {
