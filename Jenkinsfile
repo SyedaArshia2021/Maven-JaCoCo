@@ -5,7 +5,6 @@ pipeline {
         TOMCAT_HOST="10.0.2.15"
     }
     tools {
-        jdk 'JDK1.8'
         maven 'mvn_3.5'
     }
     stages{
