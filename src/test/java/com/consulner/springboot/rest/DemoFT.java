@@ -43,7 +43,7 @@ public class DemoFT {
     String expected = "{\"message\":\"Hello there!!\"}";
     String resp = response.getBody();
     System.out.println(resp);
-    JSONAssert.assertEquals(expected, resp, false);
+    JSONAssert.assertEquals(expected, resp, true);
   }
 
   private String createURLWithPort(String uri) {
