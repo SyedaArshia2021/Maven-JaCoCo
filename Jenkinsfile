@@ -26,7 +26,7 @@ pipeline {
         }
         stage ('Deploy') {
             steps {
-                sh 'sudo cp target/RestDemo-0.0.1-SNAPSHOT ${TOMCAT_HOME}/webapps/'
+                sh 'sudo cp -r target/RestDemo-0.0.1-SNAPSHOT ${TOMCAT_HOME}/webapps/'
             }
         }
         stage ('Start tomcat') {
